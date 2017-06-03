@@ -1,0 +1,53 @@
+.react-pop-dropdown{
+  color:#000;
+  transition: opacity 0.3s;
+
+  top:0;bottom:0;
+  right:0;left:0;
+  z-index: 100;
+
+
+  &[data-visible=true]{
+    opacity: 1;
+  }
+
+  &[data-visible=false]{
+    opacity: 0.01;
+  }
+
+  &-menu{
+    z-index:100;
+    background: #4c474d;
+    color:#fff;
+    min-width:30%;
+    position: fixed;
+    border-radius: 4px;
+    overflow: hidden;
+    right:10px;
+    top:10px;
+
+    >.item{
+      height:40px;
+      line-height: 40px;
+      padding:0 10px;
+
+      &:active{
+        background: darken(#4c474d,10%);
+      }
+
+      + .item{
+        border-top: 1px solid rgba(#fff,0.2);
+        user-select: none;
+      }
+      //icon
+      >i{
+        font-size:16px;
+      }
+      //text:
+      >span{
+        padding-left:10px;
+      }
+
+    }
+  }
+}
