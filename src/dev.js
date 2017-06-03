@@ -8,7 +8,7 @@ import {
 /*===example start===*/
 
 // install: npm install afeiship/react-pop-dropdown --save
-// import : import ReactPopDropdown from 'react-pop-dropdown'
+// import : import {ReactPopDropdown,ReactPopDropdownCtrl} from 'react-pop-dropdown'
 
 class App extends React.Component{
   constructor(props){
