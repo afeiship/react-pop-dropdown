@@ -25,6 +25,7 @@ class App extends React.Component{
     ReactPopDropdownCtrl.show({
       onClick:function(item){
         console.log(item);
+        this.hide();
       },
       items:[
         {
