@@ -14,6 +14,7 @@ export default class ReactPopDropdown extends ReactBackdrop{
   static propTypes = {
     visible:PropTypes.bool,
     items: PropTypes.array,
+    onClick: PropTypes.func,
     freeElement: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.element,
@@ -40,6 +41,7 @@ export default class ReactPopDropdown extends ReactBackdrop{
     super(props);
     this.state = objectAssign(this.state,{
       items:props.items,
+      onClick:noop,
       freeElement:props.freeElement,
     });
   }
@@ -48,7 +50,6 @@ export default class ReactPopDropdown extends ReactBackdrop{
     this.setState({visible:false});
   };
 
-
   show(inOptions,inCallback){
     const options = objectAssign({ ...this.props},inOptions);
     this.setState(options,()=>{
@@ -56,12 +57,11 @@ export default class ReactPopDropdown extends ReactBackdrop{
     });
   }
 
-
   get children(){
-    const {items} = this.state;
+    const {items,onClick} = this.state;
     return items.map((item,index)=>{
       return (
-        <li key={index} className="item" onClick={item.onClick ? item.onClick.bind(this,item) : noop}>
+        <li key={index} className="item" onClick={onClick ? onClick.bind(this,item) : noop}>
             {item.icon && <i className={item.icon} />}
             <span>{item.text}</span>
         </li>

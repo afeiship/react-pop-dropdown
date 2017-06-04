@@ -23,20 +23,17 @@ class App extends React.Component{
 
   _click1 = e =>{
     ReactPopDropdownCtrl.show({
+      onClick:function(item){
+        console.log(item);
+      },
       items:[
         {
           text:'发起群聊',
-          icon:'ion-chatbubbles',
-          onClick:function(){
-            console.log('group chat!');
-          }
+          icon:'ion-chatbubbles'
         },
         {
           text:'添加好友',
-          icon:'ion-person-add',
-          onClick:function(){
-            console.log('add friend');
-          }
+          icon:'ion-person-add'
         },
         {
           text:'扫一扫',
